@@ -1,0 +1,14 @@
+server:
+  port: 8085
+
+
+spring:
+  jpa:
+    hibernate:
+      ddlAuto: update
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/course-erp-db
+    username: root
+    password: 1312acab
+    driverClassName: com.mysql.cj.jdbc.Driver

@@ -3,5 +3,5 @@ spring:
     active: local
 
   liquibase:
-    enabled: true
-    change-log: classpath:migrations/changelog-master.xml
+    enabled: false
+#    change-log: classpath:migrations/changelog-master.xml

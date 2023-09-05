@@ -1,0 +1,31 @@
+<!--<?xml version="1.0" encoding="UTF-8" ?>-->
+<!--<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >-->
+
+<!--<mapper namespace="com.webperside.courseerpbackend.repository.UserRepository">-->
+
+<!--    <insert id="insert" useGeneratedKeys="true" keyColumn="id" keyProperty="id">-->
+<!--        INSERT INTO users (name, surname, status, role_id, email, phone_number, password)-->
+<!--        VALUES (#{name}, #{surname}, #{status}, #{roleId}, #{email}, #{phoneNumber}, #{password})-->
+<!--    </insert>-->
+
+<!--&lt;!&ndash;    <select id="findByEmail" resultType="User">&ndash;&gt;-->
+<!--&lt;!&ndash;        SELECT&ndash;&gt;-->
+<!--&lt;!&ndash;        <include refid="userBaseColumns"/>&ndash;&gt;-->
+<!--&lt;!&ndash;        FROM users u&ndash;&gt;-->
+<!--&lt;!&ndash;        WHERE u.email = #{email}&ndash;&gt;-->
+<!--&lt;!&ndash;        AND u.is_deleted = false&ndash;&gt;-->
+<!--&lt;!&ndash;    </select>&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <sql id="userBaseColumns">&ndash;&gt;-->
+<!--&lt;!&ndash;        u.id,&ndash;&gt;-->
+<!--&lt;!&ndash;        u.name,&ndash;&gt;-->
+<!--&lt;!&ndash;        u.surname,&ndash;&gt;-->
+<!--&lt;!&ndash;        u.status,&ndash;&gt;-->
+<!--&lt;!&ndash;        u.role_id,&ndash;&gt;-->
+<!--&lt;!&ndash;        u.email,&ndash;&gt;-->
+<!--&lt;!&ndash;        u.phone_number,&ndash;&gt;-->
+<!--&lt;!&ndash;        u.password,&ndash;&gt;-->
+<!--&lt;!&ndash;        u.is_deleted&ndash;&gt;-->
+<!--&lt;!&ndash;    </sql>&ndash;&gt;-->
+
+<!--</mapper>-->

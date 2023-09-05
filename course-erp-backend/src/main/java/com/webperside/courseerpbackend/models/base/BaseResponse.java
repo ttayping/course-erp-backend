@@ -1,4 +1,4 @@
-package com.webperside.courseerpbackend.model;
+package com.webperside.courseerpbackend.models.base;
 
 
 import lombok.AllArgsConstructor;

@@ -4,14 +4,21 @@ import com.webperside.courseerpbackend.models.base.BaseResponse;
 import com.webperside.courseerpbackend.models.dto.RefreshTokenDto;
 import com.webperside.courseerpbackend.models.mybatis.user.User;
 import com.webperside.courseerpbackend.models.payload.auth.LoginPayload;
+import com.webperside.courseerpbackend.models.payload.auth.RefreshTokenPayload;
 import com.webperside.courseerpbackend.models.response.auth.LoginResponse;
 import com.webperside.courseerpbackend.services.security.AccessTokenManager;
+import com.webperside.courseerpbackend.services.security.AuthBusinessService;
 import com.webperside.courseerpbackend.services.security.RefreshTokenManager;
+import com.webperside.courseerpbackend.services.user.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.naming.AuthenticationException;
 
 @RestController
 @RequestMapping("/v1/auth")
@@ -22,19 +29,23 @@ public class AuthController {
     private final AccessTokenManager accessTokenManager;
     private final RefreshTokenManager refreshTokenManager;
 
+    private final AuthBusinessService authBusinessService;
+
+
     @PostMapping("/login")
     public BaseResponse<LoginResponse> login(@RequestBody LoginPayload payload) {
-        User user = User.builder().email("email@email.com").build();
-        user.setId(1L);
+        return BaseResponse.success(authBusinessService.login(payload));
+    }
 
-        return BaseResponse.success(
-                LoginResponse.builder()
-                        .accessToken(accessTokenManager.generate(user))
-                        .refreshToken(refreshTokenManager.generate(
-                                RefreshTokenDto.builder().user(user).rememberMe(payload.isRememberMe()).build()
-                        ))
-                        .build()
-        );
+    @PostMapping("/token/refresh")
+    public BaseResponse<LoginResponse> refresh(@RequestBody RefreshTokenPayload payload) {
+        return BaseResponse.success(authBusinessService.refresh(payload));
+    }
+
+    @PostMapping("/logout")
+    public BaseResponse<Void> logout() {
+        authBusinessService.logout();
+        return BaseResponse.success();
     }
 
     /*

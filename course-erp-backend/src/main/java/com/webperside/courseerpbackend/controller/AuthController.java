@@ -5,6 +5,7 @@ import com.webperside.courseerpbackend.models.dto.RefreshTokenDto;
 import com.webperside.courseerpbackend.models.mybatis.user.User;
 import com.webperside.courseerpbackend.models.payload.auth.LoginPayload;
 import com.webperside.courseerpbackend.models.payload.auth.RefreshTokenPayload;
+import com.webperside.courseerpbackend.models.payload.auth.SignUpPayload;
 import com.webperside.courseerpbackend.models.response.auth.LoginResponse;
 import com.webperside.courseerpbackend.services.security.AccessTokenManager;
 import com.webperside.courseerpbackend.services.security.AuthBusinessService;
@@ -53,6 +54,13 @@ public class AuthController {
     2. step: refresh token -> acc token refresh token
     3. step: request (new access token) -> success
     */
+
+    @PostMapping("/sign-up")
+    public BaseResponse<Void> signUp(@RequestBody SignUpPayload payload) {
+//        System.out.println(UserEntityMapper.INSTANCE.fromSignUpPayloadToUser(payload, "123123",1L));
+        authBusinessService.signUp(payload);
+        return BaseResponse.success();
+    }
 
 
 }
